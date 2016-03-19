@@ -1,7 +1,7 @@
 Cloud9 v3 Dockerfile
 =============
 
-This is a fork from [kdelfour](https://github.com/kdelfour/cloud9-docker). This dork is an experiment to see if I can package the cloud9ide in an ARM-based docker image.
+This is a fork from [kdelfour](https://github.com/kdelfour/cloud9-docker). This fork is an experiment to see if I can package the cloud9ide in an ARM-based docker image.
 
 
 This repository contains Dockerfile of Cloud9 IDE for Docker's automated build published to the public Docker Hub Registry.
