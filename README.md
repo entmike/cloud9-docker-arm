@@ -1,4 +1,4 @@
-Cloud9 v3 Dockerfile
+Cloud9 v3 in docker on Raspberry Pi
 =============
 
 This is a fork from [kdelfour](https://github.com/kdelfour/cloud9-docker). I also used [flyingprogrammer's repo](https://github.com/flyinprogrammer/cloud9-with-carina) for reference.  Much thanks to those two for their excellent work.
