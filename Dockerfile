@@ -21,10 +21,7 @@ RUN useradd -m cloud9ide
 
 # Install cloud9ide
 RUN runuser -l cloud9ide -c 'git clone https://github.com/c9/core.git /home/cloud9ide/cloud9'
-ADD install-c9.sh /home/cloud9ide/install-c9.sh
-RUN chown cloud9ide:cloud9ide /home/cloud9ide/install-c9.sh && \
-    chmod u+x /home/cloud9ide/install-c9.sh
-RUN runuser -l cloud9ide -c 'cd /home/cloud9ide/ && ./install-c9.sh'
+RUN runuser -l cloud9ide -c '/home/cloud9ide/cloud9/scripts/install-sdk.sh'
 
 # Update config
 RUN runuser -l cloud9ide -c "sed -i -e 's_127.0.0.1_0.0.0.0_g' /home/cloud9ide/cloud9/configs/standalone.js"
