@@ -18,7 +18,7 @@ The major differences in this fork are the following:
 ## Install Docker
 Follow [Hypriot's Blog]() to install docker on a Raspberry Pi
 
-## Usage
+## Run it
 
 ```
 docker run -it -d -p 80:8080 barrywilliams/cloud9-docker-arm
@@ -35,7 +35,11 @@ docker run -d -p 80:8080 -e COLLAB=true barrywilliams/cloud9-docker-arm
 You can add a workspace as a volume directory with the argument `-v /your-path/workspace/:/workspace/` like this :
 ```
 docker run -it -d -p 80:8080 -v /your-path/workspace/:/workspace/ barrywilliams/cloud9-docker-arm
-```    
+``` 
+## Use It
+
+Navigate to your raspberry pi: `http://<your pi's address>`
+
 ## Build It
 
 Clone the latest repo on a Raspberry Pi with Docker.
