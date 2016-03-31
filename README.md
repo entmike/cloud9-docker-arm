@@ -1,43 +1,54 @@
 Cloud9 v3 Dockerfile
 =============
 
-This is a fork from [kdelfour](https://github.com/kdelfour/cloud9-docker). This fork is an experiment to see if I can package the cloud9ide in an ARM-based docker image.
+This is a fork from [kdelfour](https://github.com/kdelfour/cloud9-docker). I also used [flyingprogrammer's repo](https://github.com/flyinprogrammer/cloud9-with-carina) for reference.  Much thanks to those two for their excellent work.
 
-
-This repository contains Dockerfile of Cloud9 IDE for Docker's automated build published to the public Docker Hub Registry.
+The major differences in this fork are the following:
+  1. This is an ARM architecture
+  1. Node runs as a non-root user - hence port 8080
 
 # Base Docker Image
-[kdelfour/supervisor-docker](https://registry.hub.docker.com/u/kdelfour/supervisor-docker/)
+[armv7/armhf-ubuntu:14.10](https://hub.docker.com/r/armv7/armhf-ubuntu/)
+
+# Docker Hub Image
+[barrywilliams/cloud9-docker-arm](https://hub.docker.com/r/barrywilliams/cloud9-docker-arm/)
 
 # Installation
 
-## Install Docker.
-
-Download automated build from public Docker Hub Registry: docker pull kdelfour/cloud9-docker
-
-(alternatively, you can build an image from Dockerfile: docker build -t="kdelfour/cloud9-docker" github.com/kdelfour/cloud9-docker)
+## Install Docker
+Follow [Hypriot's Blog]() to install docker on a Raspberry Pi
 
 ## Usage
 
-    docker run -it -d -p 80:80 kdelfour/cloud9-docker
-    
-You can add a workspace as a volume directory with the argument *-v /your-path/workspace/:/workspace/* like this :
+```
+docker run -it -d -p 80:8080 barrywilliams/cloud9-docker-arm
+```    
+You can also provide auth credentials
+```    
+docker run -d -p 80:8080 -e AUTH=user:pass barrywilliams/cloud9-docker-arm
+``` 
+And the collab flag
+```    
+docker run -d -p 80:8080 -e COLLAB=true barrywilliams/cloud9-docker-arm
+```
 
-    docker run -it -d -p 80:80 -v /your-path/workspace/:/workspace/ kdelfour/cloud9-docker
-    
-## Build and run with custom config directory
+You can add a workspace as a volume directory with the argument `-v /your-path/workspace/:/workspace/` like this :
+```
+docker run -it -d -p 80:8080 -v /your-path/workspace/:/workspace/ barrywilliams/cloud9-docker-arm
+```    
+## Build It
 
-Get the latest version from github
-
-    git clone https://github.com/kdelfour/cloud9-docker
-    cd cloud9-docker/
+Clone the latest repo on a Raspberry Pi with Docker.
+```
+git clone https://github.com/barrywilliams/cloud9-docker-arm
+```
 
 Build it
-
-    sudo docker build --force-rm=true --tag="$USER/cloud9-docker:latest" .
-    
+```
+docker build cloud9-docker-arm/ --force-rm=true --tag="$USER/cloud9-docker-arm:latest" .
+```   
 And run
-
-    sudo docker run -d -p 80:80 -v /your-path/workspace/:/workspace/ $USER/cloud9-docker:latest
-    
+```
+docker run -d -p 80:80 -v /your-path/workspace/:/workspace/ $USER/cloud9-docker-arm:latest
+``` 
 Enjoy !!    
