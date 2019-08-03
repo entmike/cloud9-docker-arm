@@ -1,7 +1,10 @@
 Cloud9 v3 in docker on Raspberry Pi
 =============
+This is a fokr form [BarryWilliams](https://github.com/BarryWilliams/cloud9-docker-arm) which in turn is is a fork from [kdelfour](https://github.com/kdelfour/cloud9-docker).
 
-This is a fork from [kdelfour](https://github.com/kdelfour/cloud9-docker). I also used [flyingprogrammer's repo](https://github.com/flyinprogrammer/cloud9-with-carina) for reference.  Much thanks to those two for their excellent work.
+I've changed the base image to `ubuntu`.  That is all.
+
+I also used [flyingprogrammer's repo](https://github.com/flyinprogrammer/cloud9-with-carina) for reference.  Much thanks to those two for their excellent work.
 
 The major differences in this fork are the following:
   1. This is an ARM architecture
