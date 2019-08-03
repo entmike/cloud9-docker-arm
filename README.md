@@ -2,7 +2,10 @@ Cloud9 v3 in docker on Raspberry Pi
 =============
 This is a fokr form [BarryWilliams](https://github.com/BarryWilliams/cloud9-docker-arm) which in turn is is a fork from [kdelfour](https://github.com/kdelfour/cloud9-docker).
 
-I've changed the base image to `ubuntu`.  That is all.
+I've changed:
+
+1) The base image to `ubuntu`.
+2) Added `nvm` and default Node 8 as runtime.
 
 I also used [flyingprogrammer's repo](https://github.com/flyinprogrammer/cloud9-with-carina) for reference.  Much thanks to those two for their excellent work.
 
