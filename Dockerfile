@@ -1,6 +1,6 @@
 # Use ARM Ubunutu base image
-FROM armv7/armhf-ubuntu:14.10
-MAINTAINER Barry Williams <barry.e.williams42@gmail.com>
+FROM ubuntu
+MAINTAINER Mike Howles <mike.howles@gmail.com>
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
