@@ -38,6 +38,15 @@ RUN apt-get clean && \
 EXPOSE 8080
 EXPOSE 3000
 
+# Install NVM
+USER cloud9ide
+# Install nvm
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+# Install Node 8 as default
+COPY setupNode.sh ./setupNode.sh
+RUN ./setupNode.sh
+USER root
+
 # Setup entrypoint
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod u+x /entrypoint.sh
